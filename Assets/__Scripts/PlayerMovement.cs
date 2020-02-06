@@ -17,7 +17,12 @@ public class PlayerMovement : MonoBehaviour
     Vector3 velocity;
     bool isGrounded;
 
+    private Animator animator;
 
+    private void Start()
+    {
+        animator = GetComponentInChildren<Animator>();
+    }
     // Update is called once per frame
     void Update()
     {
@@ -30,6 +35,14 @@ public class PlayerMovement : MonoBehaviour
 
         float _xMov = Input.GetAxis("Horizontal");
         float _zMov = Input.GetAxis("Vertical");
+        
+        if (_xMov != 0 || _zMov != 0)
+        {
+            animator.SetBool("IsWalking", true);
+        } else
+        {
+            animator.SetBool("IsWalking", false);
+        }
 
         Vector3 _movHorizontal = transform.right * _xMov;
         Vector3 _movVertical = transform.forward * _zMov;
@@ -43,10 +56,16 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            animator.SetTrigger("OnJump");
+            Invoke("Jump", 0.3f);
         }
 
         velocity.y += 2 * gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
+    }
+
+    void Jump()
+    {
+            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
     }
 }
