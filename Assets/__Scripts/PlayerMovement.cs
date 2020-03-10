@@ -57,6 +57,18 @@ public class PlayerMovement : MonoBehaviour
 
         }
 
+        //Sprint function
+        if (Input.GetButton("Sprint") && isGrounded)
+        {
+            speed = 7;
+            animator.SetInteger("condition", 2);
+        }
+        else 
+        {
+            speed = 2;
+            animator.SetInteger("condition", 0);
+        }
+
         // Lateral movement
         Vector3 _movHorizontal = transform.right * _xMov;
         Vector3 _movVertical = transform.forward * _zMov;
