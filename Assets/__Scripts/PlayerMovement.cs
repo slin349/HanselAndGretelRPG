@@ -45,6 +45,7 @@ public class PlayerMovement : MonoBehaviour
         float _xMov = Input.GetAxis("Horizontal");
         float _zMov = Input.GetAxis("Vertical");
 
+
         if (_xMov != 0 || _zMov != 0)
         {
             // animator.SetBool("IsWalking", true);
@@ -54,20 +55,20 @@ public class PlayerMovement : MonoBehaviour
         {
             // animator.SetBool("IsWalking", false);
             animator.SetInteger("condition", 0);
-
         }
 
-        //Sprint function
-        if (Input.GetButton("Sprint") && isGrounded)
-        {
+        //sprint function
+        if (Input.GetButtonDown ("Sprint")){
             speed = 7;
-            animator.SetInteger("condition", 2);
+            animator.SetBool("is_sprinting", true);
         }
-        else 
+        else if (Input.GetButtonUp("Sprint"))
         {
             speed = 2;
-            animator.SetInteger("condition", 0);
+            animator.SetBool("is_sprinting", false);
+
         }
+
 
         // Lateral movement
         Vector3 _movHorizontal = transform.right * _xMov;
