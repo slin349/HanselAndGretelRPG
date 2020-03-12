@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public CharacterController controller;
-    public float speed = 2f;
+    public float defaultSpeed = 2f;
 
     public Transform groundCheck;
     public float groundDistance = 0.1f;
@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     Vector3 _velocity;
     bool isGrounded;
 
+    private float speed;
     private float jumpRate = 1f;
     private float nextJump;
     private Animator animator;
@@ -25,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         animator = GetComponentInChildren<Animator>();
+        speed = defaultSpeed;
     }
     // Update is called once per frame
     void Update()
@@ -47,26 +49,26 @@ public class PlayerMovement : MonoBehaviour
         float _zMov = Input.GetAxis("Vertical");
 
         // Walking animations
-        if (_xMov != 0 || _zMov != 0)
+        if ((_xMov != 0 || _zMov != 0) && Input.GetKey(KeyCode.LeftShift))
         {
+            // Running
+            speed = defaultSpeed * 2;
+            animator.SetInteger("condition", 2);
+        }
+        else if ((_xMov != 0 || _zMov != 0) && !Input.GetKey(KeyCode.LeftShift))
+        {
+            // Walking
+            speed = defaultSpeed;
             animator.SetInteger("condition", 1);
+
         }
         else
         {
+            // Idling
             animator.SetInteger("condition", 0);
         }
 
-        // Sprinting
-        if (Input.GetButtonDown ("Sprint")){
-            speed = 7;
-            animator.SetBool("is_sprinting", true);
-        }
-        else if (Input.GetButtonUp("Sprint"))
-        {
-            speed = 2;
-            animator.SetBool("is_sprinting", false);
-
-        }
+ 
 
         // Lateral movement
         Vector3 _movHorizontal = transform.right * _xMov;
