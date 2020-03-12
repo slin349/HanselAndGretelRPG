@@ -8,6 +8,8 @@ public class Health : MonoBehaviour
     public int currhealth;
     private Animator animator;
 
+    public bool isDead = false;
+
     private void Start()
     {
         animator = GetComponentInChildren<Animator>();
@@ -20,6 +22,7 @@ public class Health : MonoBehaviour
         if (currhealth <= 0)
         {
             print("Died");
+            isDead = true;
             animator.SetBool("isDead", true);
         }
         else
