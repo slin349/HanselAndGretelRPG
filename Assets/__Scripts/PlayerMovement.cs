@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 2f;
 
     public Transform groundCheck;
-    public float groundDistance = 0.4f;
+    public float groundDistance = 0.1f;
     public LayerMask groundMask;
 
     public float gravity = -9.81f;
@@ -17,6 +17,8 @@ public class PlayerMovement : MonoBehaviour
     Vector3 _velocity;
     bool isGrounded;
 
+    private float jumpRate = 1f;
+    private float nextJump;
     private Animator animator;
 
 
@@ -27,7 +29,6 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GetInput();
         Movement();
     }
 
@@ -45,19 +46,17 @@ public class PlayerMovement : MonoBehaviour
         float _xMov = Input.GetAxis("Horizontal");
         float _zMov = Input.GetAxis("Vertical");
 
-
+        // Walking animations
         if (_xMov != 0 || _zMov != 0)
         {
-            // animator.SetBool("IsWalking", true);
             animator.SetInteger("condition", 1);
         }
         else
         {
-            // animator.SetBool("IsWalking", false);
             animator.SetInteger("condition", 0);
         }
 
-        //sprint function
+        // Sprinting
         if (Input.GetButtonDown ("Sprint")){
             speed = 7;
             animator.SetBool("is_sprinting", true);
@@ -69,16 +68,16 @@ public class PlayerMovement : MonoBehaviour
 
         }
 
-
         // Lateral movement
         Vector3 _movHorizontal = transform.right * _xMov;
         Vector3 _movVertical = transform.forward * _zMov;
         Vector3 move = (_movHorizontal + _movVertical).normalized * speed;
         controller.Move(move * Time.deltaTime);
-        
 
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        // Handle jumping
+        if (Input.GetButtonDown("Jump") && isGrounded && Time.time > nextJump) 
         {
+            nextJump = Time.time + jumpRate;    // Prevent input buffering of the jump
             animator.SetBool("in_air", true);
             Invoke("Jump", 0.3f);
         }
@@ -88,20 +87,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         _velocity.y += gravity * Time.deltaTime;
-
         controller.Move(_velocity * Time.deltaTime);
-
-
-
-    }
-
-    void GetInput()
-    {
-  
-     
-
-
-
     }
 
     void Jump()
