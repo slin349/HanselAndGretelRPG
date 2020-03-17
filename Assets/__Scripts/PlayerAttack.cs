@@ -55,7 +55,7 @@ public class PlayerAttack : MonoBehaviour
         numOfGrenades--;
         //Instantiate grenade then add force to "throw" it
         GameObject go = Instantiate(grenade, transform.position, transform.rotation);
-        go.GetComponent<Rigidbody>().AddForce(100f,50f,50f);
+        go.GetComponent<Rigidbody>().AddForce(transform.forward * 300);
     }
 
     private void OnDrawGizmosSelected()
