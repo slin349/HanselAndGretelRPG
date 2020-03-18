@@ -105,6 +105,8 @@ GameObject:
   - component: {fileID: 2352803142179688433}
   - component: {fileID: 3161763160096139016}
   - component: {fileID: 114645445752219160}
+  - component: {fileID: 114007147990305002}
+  - component: {fileID: 143184085248219448}
   m_Layer: 0
   m_Name: footman_Yellow_Polyart
   m_TagString: Untagged
@@ -162,12 +164,51 @@ MonoBehaviour:
   attackPoint: {fileID: 0}
   enemyLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
   attackDamage: 1
   attackRange: 1
   attackRate: 1
   grenade: {fileID: 0}
   numOfGrenades: 1
+--- !u!114 &114007147990305002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 228156212403298459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46b27799aae9f3f43a77b578a880a320, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 0}
+  defaultSpeed: 2
+  groundCheck: {fileID: 0}
+  groundDistance: 0.1
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 0
+  gravity: -9.81
+  jumpHeight: 3
+--- !u!143 &143184085248219448
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 228156212403298459}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &330336968021071744
 GameObject:
   m_ObjectHideFlags: 0
