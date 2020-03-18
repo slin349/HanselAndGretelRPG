@@ -11,7 +11,6 @@ public class PlayerAttack : MonoBehaviour
     public float attackRate = 1f;
     public GameObject grenade;
     public int numOfGrenades = 1;
-
     private float nextAttack;
     private Animator animator;
 
@@ -29,13 +28,6 @@ public class PlayerAttack : MonoBehaviour
             DoAttack();
             animator.SetTrigger("attack");
         }
-
-        //If Q is pressed, initiate grenade
-        if (Input.GetKeyDown(KeyCode.Q) && numOfGrenades != 0)
-        {
-            ThrowGrenade();
-        }
-
     }
 
     private void DoAttack()
@@ -48,14 +40,6 @@ public class PlayerAttack : MonoBehaviour
             enemy.GetComponent<Health>().TakeDamage(attackDamage);
         }
 
-    }
-
-    private void ThrowGrenade()
-    {
-        numOfGrenades--;
-        //Instantiate grenade then add force to "throw" it
-        GameObject go = Instantiate(grenade, transform.position, transform.rotation);
-        go.GetComponent<Rigidbody>().AddForce(transform.forward * 300);
     }
 
     private void OnDrawGizmosSelected()

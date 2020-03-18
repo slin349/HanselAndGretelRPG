@@ -104,6 +104,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2352803142179688433}
   - component: {fileID: 3161763160096139016}
+  - component: {fileID: 114645445752219160}
   m_Layer: 0
   m_Name: footman_Yellow_Polyart
   m_TagString: Untagged
@@ -137,7 +138,7 @@ Animator:
   m_GameObject: {fileID: 228156212403298459}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 15f10701147c9744984662464c2c2019, type: 3}
-  m_Controller: {fileID: 9100000, guid: e6ef91a23981fc94c9303f771d197428, type: 2}
+  m_Controller: {fileID: 9100000, guid: cacfb59f37a8fa147a0e2b914a9a4eb3, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -146,6 +147,27 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114645445752219160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 228156212403298459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea302001efcb8734a8cd704b84f266d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackPoint: {fileID: 0}
+  enemyLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  attackDamage: 1
+  attackRange: 1
+  attackRate: 1
+  grenade: {fileID: 0}
+  numOfGrenades: 1
 --- !u!1 &330336968021071744
 GameObject:
   m_ObjectHideFlags: 0
@@ -231,7 +253,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 954509444981525758}
-  m_LocalRotation: {x: -0.09158165, y: -0.19417386, z: 0.0007796429, w: 0.9766825}
+  m_LocalRotation: {x: -0.09158166, y: -0.19417386, z: 0.00077964296, w: 0.9766825}
   m_LocalPosition: {x: -24.493395, y: 4.37078e-15, z: -6.5791713e-15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -422,7 +444,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2737152350870499998}
-  m_LocalRotation: {x: 0.030814845, y: -0.21547185, z: -0.1381763, w: 0.9661934}
+  m_LocalRotation: {x: 0.030814847, y: -0.21547185, z: -0.13817632, w: 0.9661934}
   m_LocalPosition: {x: -10.653726, y: 3.648137e-16, z: 8.5441255e-15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []

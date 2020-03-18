@@ -239,7 +239,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 124442}
-  m_LocalRotation: {x: -0.49754447, y: -0.1117912, z: -0.10089444, w: 0.85426724}
+  m_LocalRotation: {x: -0.49754447, y: -0.11179121, z: -0.10089444, w: 0.8542673}
   m_LocalPosition: {x: -12.755086, y: -7.1054274e-15, z: -1.2434498e-14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -270,7 +270,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 125140}
-  m_LocalRotation: {x: 0.32817242, y: 0.05783674, z: -0.6587906, w: 0.67450184}
+  m_LocalRotation: {x: 0.32817245, y: 0.05783674, z: -0.65879065, w: 0.67450184}
   m_LocalPosition: {x: 0.004, y: 0.65978205, z: -0.17136107}
   m_LocalScale: {x: 0.009999999, y: 0.01, z: 0.01}
   m_Children:
@@ -522,7 +522,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 146132}
-  m_LocalRotation: {x: -0.03485315, y: -0.023372982, z: 0.7761253, w: 0.6291808}
+  m_LocalRotation: {x: -0.034853153, y: -0.023372982, z: 0.7761254, w: 0.6291808}
   m_LocalPosition: {x: -16.9013, y: -5.4614235e-14, z: -10.104266}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1134,7 +1134,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 182884}
-  m_LocalRotation: {x: -0.091581635, y: -0.19417386, z: 0.0007796428, w: 0.9766825}
+  m_LocalRotation: {x: -0.09158164, y: -0.19417386, z: 0.00077964284, w: 0.9766825}
   m_LocalPosition: {x: -24.493395, y: 4.37078e-15, z: -6.5791713e-15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1198,7 +1198,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 185378}
-  m_LocalRotation: {x: 0.3216627, y: -0.3198401, z: 0.43278626, w: 0.77905804}
+  m_LocalRotation: {x: 0.3216627, y: -0.31984013, z: 0.43278626, w: 0.7790581}
   m_LocalPosition: {x: -7.0572023, y: -4.708794, z: 9.280683}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1216,6 +1216,7 @@ GameObject:
   m_Component:
   - component: {fileID: 472902}
   - component: {fileID: 9554828}
+  - component: {fileID: 114930873718171516}
   m_Layer: 0
   m_Name: footman_Blue_PBR
   m_TagString: Untagged
@@ -1249,7 +1250,7 @@ Animator:
   m_GameObject: {fileID: 185934}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 46783dc54d7600447880ab6f35037fb4, type: 3}
-  m_Controller: {fileID: 9100000, guid: e6ef91a23981fc94c9303f771d197428, type: 2}
+  m_Controller: {fileID: 9100000, guid: cacfb59f37a8fa147a0e2b914a9a4eb3, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1258,6 +1259,27 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114930873718171516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0695d5ae234b6246935369c1423c386, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackPoint: {fileID: 0}
+  enemyLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  attackDamage: 1
+  attackRange: 1
+  attackRate: 1
+  grenade: {fileID: 1377585397282401009, guid: 14cd283f33d9936498eeb5963567dc3c, type: 3}
+  numOfGrenades: 1
 --- !u!1 &189094
 GameObject:
   m_ObjectHideFlags: 0
@@ -1343,7 +1365,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 192540}
-  m_LocalRotation: {x: 0.030814841, y: -0.21547185, z: -0.13817628, w: 0.9661934}
+  m_LocalRotation: {x: 0.030814843, y: -0.21547185, z: -0.13817629, w: 0.9661934}
   m_LocalPosition: {x: -10.653726, y: 3.648137e-16, z: 8.5441255e-15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
