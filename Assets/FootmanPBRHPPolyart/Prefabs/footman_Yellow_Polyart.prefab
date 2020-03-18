@@ -105,8 +105,6 @@ GameObject:
   - component: {fileID: 2352803142179688433}
   - component: {fileID: 3161763160096139016}
   - component: {fileID: 114645445752219160}
-  - component: {fileID: 114007147990305002}
-  - component: {fileID: 143184085248219448}
   m_Layer: 0
   m_Name: footman_Yellow_Polyart
   m_TagString: Untagged
@@ -161,7 +159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea302001efcb8734a8cd704b84f266d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackPoint: {fileID: 0}
+  attackPoint: {fileID: 1815910505004998270}
   enemyLayers:
     serializedVersion: 2
     m_Bits: 1024
@@ -170,45 +168,6 @@ MonoBehaviour:
   attackRate: 1
   grenade: {fileID: 0}
   numOfGrenades: 1
---- !u!114 &114007147990305002
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 228156212403298459}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46b27799aae9f3f43a77b578a880a320, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controller: {fileID: 0}
-  defaultSpeed: 2
-  groundCheck: {fileID: 0}
-  groundDistance: 0.1
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 0
-  gravity: -9.81
-  jumpHeight: 3
---- !u!143 &143184085248219448
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 228156212403298459}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Height: 2
-  m_Radius: 0.5
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &330336968021071744
 GameObject:
   m_ObjectHideFlags: 0
@@ -392,7 +351,8 @@ Transform:
   m_LocalRotation: {x: -0.8410852, y: -0.069244236, z: -0.001304049, w: 0.5364506}
   m_LocalPosition: {x: -37.385925, y: 86.25157, z: 18.17991}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1815910505004998270}
   m_Father: {fileID: 380323769889463739}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1442,3 +1402,33 @@ Transform:
   m_Father: {fileID: 380323769889463739}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8863136804499538926
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1815910505004998270}
+  m_Layer: 0
+  m_Name: AttackPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1815910505004998270
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8863136804499538926}
+  m_LocalRotation: {x: 0.4369581, y: -0.53884816, z: 0.32836658, w: 0.6410037}
+  m_LocalPosition: {x: -77.1, y: 20, z: -16.2}
+  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_Children: []
+  m_Father: {fileID: 8118105498197408152}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 66.07301, y: -84.706, z: -7.073}

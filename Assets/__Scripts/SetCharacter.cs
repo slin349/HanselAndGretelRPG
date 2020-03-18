@@ -21,18 +21,9 @@ public class SetCharacter : MonoBehaviour
             gameObject = Instantiate(character2, parent.transform.forward*distance+parent.transform.position  ,Quaternion.Euler(0f,0f,0f) );
             gameObject.transform.parent = parent.transform;
             gameObject.transform.localScale = new Vector3(1,1,1);
+            gameObject.transform.Translate(0.0f, -1.5f, 0.0f);
         }
             
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }
