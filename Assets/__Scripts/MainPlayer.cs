@@ -16,5 +16,10 @@ public class MainPlayer : MonoBehaviour
             Debug.Log("Singleton already exists!");
         }
     }
+    void Update(){
+        if(Input.GetKeyDown(KeyCode.P)){
+            Application.LoadLevel("Inventory");
+        }
+    }
 
 }

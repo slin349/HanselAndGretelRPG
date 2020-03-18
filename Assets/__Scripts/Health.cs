@@ -31,7 +31,4 @@ public class Health : MonoBehaviour
             animator.SetTrigger("hit");
         }
     }
-
-
-
 }
