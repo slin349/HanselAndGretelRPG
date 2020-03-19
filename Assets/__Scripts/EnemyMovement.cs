@@ -42,8 +42,9 @@ public class EnemyMovement : MonoBehaviour
             // Prevent nav agent from moving after death
             agent.ResetPath();
         }
-        
- 
+        transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, transform.eulerAngles.z);
+
+
     }
 
     void Move()
