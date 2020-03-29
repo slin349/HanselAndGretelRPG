@@ -51,47 +51,9 @@ public class EnemyMovement : MonoBehaviour
 
     }
 
-    private bool isDistanceCheck = false;
-    private float timeLeft = 3.0f;
-
-    private float attackRate = 2.0f;
-    private float nextAttack;
-
     void Move()
     {
         playerDistance = Vector3.Distance(player.position, transform.position);
-
-        // Attack Logic
-        // Should move this into its own function later
-        if (playerDistance < 3.0f && !playerHealth.isDead)
-        {
-            if (!isDistanceCheck)
-            {
-                print("You need to leave or else I will attack.");
-                isDistanceCheck = true;
-            }
-            else
-            {
-                timeLeft -= Time.deltaTime;
-            }
-
-            if (timeLeft <= 0.0f && Time.time > nextAttack)
-            {
-                nextAttack = Time.time + attackRate;
-                print("Attacking !");
-                animator.SetBool("attack", true);
-                // Damage the player
-                playerHealth.TakeDamage(1);
-            }
-        }
-        else
-        {
-            animator.SetBool("attack", false);
-            isDistanceCheck = false;
-            timeLeft = 3.0f;
-        }
-
-        // Movement logic
         if (playerDistance < awareAI && !playerHealth.isDead)
         {
             LookAtPlayer();
