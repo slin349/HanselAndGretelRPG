@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     private float nextJump;
     private Animator animator;
 
+    public Health health;
 
     private void Start()
     {
@@ -31,7 +32,11 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Movement();
+        if (!health.isDead)
+        {
+            // Player is not dead
+            Movement();
+        }
     }
 
     

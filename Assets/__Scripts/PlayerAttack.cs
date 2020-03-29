@@ -14,19 +14,25 @@ public class PlayerAttack : MonoBehaviour
     private float nextAttack;
     private Animator animator;
 
+    public Health health;
 
     private void Start()
     {
         animator = GetComponentInChildren<Animator>();
+        health = GetComponentInParent<Health>(); 
     }
 
     void Update()
     {
-        if (Input.GetMouseButton(0) && Time.time > nextAttack)
+        // Only respond to click events if the player is not dead
+        if (!health.isDead)
         {
-            nextAttack = Time.time + attackRate;
-            DoAttack();
-            animator.SetTrigger("attack");
+            if (Input.GetMouseButton(0) && Time.time > nextAttack)
+            {
+                nextAttack = Time.time + attackRate;
+                DoAttack();
+                animator.SetTrigger("attack");
+            }
         }
     }
 
