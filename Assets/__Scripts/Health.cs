@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
+    public bool hasHealthBar = false;
     public int maxHealth = 10;
-    public int currhealth;
+    public float currhealth;
+    public SimpleHealthBar healthBar;
     private Animator animator;
+
 
     public bool isDead = false;
 
@@ -19,6 +22,10 @@ public class Health : MonoBehaviour
     public void TakeDamage(int amount)
     {
         currhealth-= amount;
+        if (hasHealthBar)
+        {
+            healthBar.UpdateBar(currhealth, maxHealth);
+        }
         if (currhealth <= 0)
         {
             print("Died");
