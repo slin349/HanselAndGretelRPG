@@ -6,6 +6,7 @@ TagManager:
   tags:
   - HasHealth
   - inventory
+  - hudBar
   layers:
   - Default
   - TransparentFX
