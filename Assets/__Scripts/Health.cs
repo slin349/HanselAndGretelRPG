@@ -5,7 +5,7 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     public int maxHealth = 10;
-    public int currhealth;
+    public float currhealth;
     public SimpleHealthBar healthBar;
     private Animator animator;
 
