@@ -13,13 +13,14 @@ public class PlayerAttack : MonoBehaviour
     public int numOfGrenades = 1;
     private float nextAttack;
     private Animator animator;
+    private int _level;
+    private const int DAMAGE_MULTIPLIER = 2;
 
     public Health health;
 
     private void Start()
     {
         animator = GetComponentInChildren<Animator>();
-        health = GetComponentInParent<Health>(); 
     }
 
     void Update()
