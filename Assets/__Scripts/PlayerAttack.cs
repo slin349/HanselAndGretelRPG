@@ -7,8 +7,8 @@ public class PlayerAttack : MonoBehaviour
     public Transform attackPoint;
     public LayerMask enemyLayers;
     public int attackDamage = 1;
-    public float attackRange = 1f;
-    public float attackRate = 1f;
+    public float attackRange = 2f;
+    public float attackRate = 0.5f;
     public GameObject grenade;
     public int numOfGrenades = 1;
     private float nextAttack;
@@ -45,7 +45,7 @@ public class PlayerAttack : MonoBehaviour
 
         foreach(Collider enemy in hitEnemies)
         {
-            enemy.GetComponent<Health>().TakeDamage(attackDamage);
+            enemy.GetComponent<EnemyHealth>().TakeDamage(attackDamage);
         }
 
     }
