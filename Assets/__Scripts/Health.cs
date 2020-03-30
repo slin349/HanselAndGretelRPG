@@ -14,7 +14,7 @@ public class Health : MonoBehaviour
 
     public bool isDead = false;
 
-    private void Start()
+    virtual public void Start()
     {
         animator = GetComponentInChildren<Animator>();
         currhealth = maxHealth;
