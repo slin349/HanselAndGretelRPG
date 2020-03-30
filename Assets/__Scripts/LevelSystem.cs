@@ -8,7 +8,7 @@ public class LevelSystem : MonoBehaviour
     public int expToNextLevel = 100;
     private int _currExp = 0;
     private int _level = 1;
-    private const int EXPVALUE = 75;
+    private const int EXPVALUE = 10;
 
     private void Start()
     {
