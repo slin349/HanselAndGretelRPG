@@ -16,6 +16,7 @@ public class EnemyHealth : Health
             animator.SetBool("isDead", true);
             //dropping 4 exp orbs
             DropExp();
+            Destroy(gameObject);
         }
         else
         {
