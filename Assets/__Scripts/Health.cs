@@ -8,6 +8,7 @@ public class Health : MonoBehaviour
     public int maxHealth = 10;
     public float currhealth;
     public SimpleHealthBar healthBar;
+    public GameObject expCube;
     private Animator animator;
 
 
@@ -31,6 +32,8 @@ public class Health : MonoBehaviour
             print("Died");
             isDead = true;
             animator.SetBool("isDead", true);
+            //dropping exp orb
+            Instantiate(expCube, transform.position, transform.rotation);
         }
         else
         {
