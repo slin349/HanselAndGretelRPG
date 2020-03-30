@@ -5,12 +5,28 @@ using UnityEngine;
 public class EnemyHealth : Health
 {
     public GameObject expCube;
+    private PointSystem pointSystem;
+
+    override public void Start()
+    {
+        animator = GetComponentInChildren<Animator>();
+        currhealth = maxHealth;
+        pointSystem = Object.FindObjectOfType<PointSystem>();
+    }
 
     override public void TakeDamage(float amount)
     {
         currhealth-= amount;
         if (currhealth <= 0)
         {
+            if (gameObject.tag == "Green")
+            {
+                pointSystem.points += 10;
+            } else if (gameObject.tag == "Blue")
+            {
+                pointSystem.points += 5; 
+            }
+            pointSystem.pointsText.text = "Points: " + pointSystem.points.ToString();
             print("Died");
             isDead = true;
             animator.SetBool("isDead", true);
