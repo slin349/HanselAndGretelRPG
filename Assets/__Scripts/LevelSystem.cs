@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class LevelSystem : MonoBehaviour
 {
     public SimpleHealthBar expBar;
     public int expToNextLevel = 100;
+    public Text levelText;
     private int _currExp = 0;
     private int _level = 1;
     private const int EXPVALUE = 10;
@@ -13,6 +15,7 @@ public class LevelSystem : MonoBehaviour
     private void Start()
     {
         expBar.UpdateBar(_currExp, expToNextLevel);
+        levelText.text = "Level: " + _level.ToString();
     }
     private void OnTriggerEnter(Collider collider)
     {
@@ -25,6 +28,7 @@ public class LevelSystem : MonoBehaviour
                 _level += 1;
                 increaseMaxHealth();
                 increaseDamage();
+                levelText.text = "Level: " + _level.ToString();
                 _currExp -= expToNextLevel;
             }
             expBar.UpdateBar(_currExp, expToNextLevel);
