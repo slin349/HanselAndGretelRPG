@@ -413,11 +413,11 @@ GameObject:
   - component: {fileID: 7849125886441114156}
   - component: {fileID: 1568023058535271286}
   - component: {fileID: 3793269502937270449}
-  - component: {fileID: 3793269502937270450}
+  - component: {fileID: 114593661420748842}
   - component: {fileID: 3793269502937270446}
   - component: {fileID: 3793269502937270445}
   m_Layer: 10
-  m_Name: footman_Blue_HP
+  m_Name: EnemyVar1
   m_TagString: HasHealth
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -472,7 +472,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &3793269502937270450
+--- !u!114 &114593661420748842
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -481,12 +481,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 2646177540352755349}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fcf738ebad33b442bd99b2e19ba8994, type: 3}
+  m_Script: {fileID: 11500000, guid: ed6dd7e6e893c104fb867442111ff866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasHealthBar: 0
   maxHealth: 10
   currhealth: 0
+  healthBar: {fileID: 0}
+  animator: {fileID: 0}
   isDead: 0
+  expCube: {fileID: 0}
 --- !u!195 &3793269502937270446
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1129,8 +1133,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fcf738ebad33b442bd99b2e19ba8994, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasHealthBar: 0
   maxHealth: 10
   currhealth: 0
+  healthBar: {fileID: 0}
+  animator: {fileID: 0}
   isDead: 0
 --- !u!1 &4967314353656973504
 GameObject:
