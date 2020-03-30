@@ -18,6 +18,10 @@ public class Health : MonoBehaviour
     {
         animator = GetComponentInChildren<Animator>();
         currhealth = maxHealth;
+        if (hasHealthBar)
+        {
+            healthBar.UpdateBar(currhealth, maxHealth);
+        }
     }
 
     virtual public void TakeDamage(float amount)
