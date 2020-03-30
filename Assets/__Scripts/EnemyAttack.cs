@@ -106,7 +106,7 @@ public class EnemyAttack : MonoBehaviour
                 print("Attacking !");
                 animator.SetBool("attack", true);
                 // Damage the player
-                playerHealth.TakeDamage(1);
+                playerHealth.TakeDamage(0.5f);
             }
         }
         else

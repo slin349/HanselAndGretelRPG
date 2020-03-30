@@ -17,9 +17,10 @@ public class Health : MonoBehaviour
     private void Start()
     {
         animator = GetComponentInChildren<Animator>();
+        currhealth = maxHealth;
     }
 
-    virtual public void TakeDamage(int amount)
+    virtual public void TakeDamage(float amount)
     {
         currhealth-= amount;
         if (hasHealthBar)

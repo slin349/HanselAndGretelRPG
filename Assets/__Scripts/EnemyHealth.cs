@@ -6,7 +6,7 @@ public class EnemyHealth : Health
 {
     public GameObject expCube;
 
-    override public void TakeDamage(int amount)
+    override public void TakeDamage(float amount)
     {
         currhealth-= amount;
         if (currhealth <= 0)
