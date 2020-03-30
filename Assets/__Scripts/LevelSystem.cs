@@ -8,6 +8,7 @@ public class LevelSystem : MonoBehaviour
     public SimpleHealthBar expBar;
     public int expToNextLevel = 100;
     public Text levelText;
+    public GameObject levelUpEffect;
     private int _currExp = 0;
     private int _level = 1;
     private const int EXPVALUE = 10;
@@ -25,6 +26,7 @@ public class LevelSystem : MonoBehaviour
             if (_currExp >= expToNextLevel)
             {
                 // level up
+                levelUp();
                 _level += 1;
                 increaseMaxHealth();
                 increaseDamage();
@@ -33,6 +35,15 @@ public class LevelSystem : MonoBehaviour
             }
             expBar.UpdateBar(_currExp, expToNextLevel);
         } 
+    }
+    
+    private void levelUp()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            Destroy(Instantiate(levelUpEffect, new Vector3(transform.position.x, transform.position.y + 0.8f, transform.position.z), new Quaternion(0, 90 * i, 0, 1), gameObject.transform), 5);
+        }
+        
     }
 
     private void increaseMaxHealth()
