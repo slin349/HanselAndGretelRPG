@@ -28,7 +28,7 @@ public class EnemyHealth : Health
     {
             for (int i = 0; i < 4; i++)
             {
-                Instantiate(expCube, new Vector3(transform.position.x + i, transform.position.y + 2, transform.position.z + i), transform.rotation);
+                Instantiate(expCube, new Vector3(transform.position.x + i, transform.position.y + 1.5f, transform.position.z + i), transform.rotation);
             }
     }
 }
