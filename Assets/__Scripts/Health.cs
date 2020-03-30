@@ -9,6 +9,7 @@ public class Health : MonoBehaviour
     public float currhealth;
     public SimpleHealthBar healthBar;
     public Animator animator;
+    private int _level;
 
 
     public bool isDead = false;
@@ -16,7 +17,6 @@ public class Health : MonoBehaviour
     private void Start()
     {
         animator = GetComponentInChildren<Animator>();
-        currhealth = maxHealth;
     }
 
     virtual public void TakeDamage(int amount)
