@@ -15,15 +15,20 @@ public class EnemyHealth : Health
             isDead = true;
             animator.SetBool("isDead", true);
             //dropping 4 exp orbs
-            for (int i = 0; i < 4; i++)
-            {
-                Instantiate(expCube, new Vector3(transform.position.x + i, transform.position.y, transform.position.z + 1), transform.rotation);
-            }
+            DropExp();
         }
         else
         {
             print("Took damage");
             animator.SetTrigger("hit");
         }
+    }
+
+    private void DropExp()
+    {
+            for (int i = 0; i < 4; i++)
+            {
+                Instantiate(expCube, new Vector3(transform.position.x + i, transform.position.y + 2, transform.position.z + i), transform.rotation);
+            }
     }
 }
