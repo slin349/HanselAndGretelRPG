@@ -14,4 +14,7 @@ public class ControlsPage : MonoBehaviour
     public void MainScene(){
         SceneManager.LoadScene("Start");
     }
+    public void Objectives(){
+        SceneManager.LoadScene("Objectives");
+    }
 }
