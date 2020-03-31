@@ -43,7 +43,7 @@ public class LevelSystem : MonoBehaviour
         {
             Destroy(Instantiate(levelUpEffect, new Vector3(transform.position.x, transform.position.y + 0.8f, transform.position.z), new Quaternion(0, 90 * i, 0, 1), gameObject.transform), 5);
         }
-        
+        print("Level Up");
     }
 
     private void increaseMaxHealth()
@@ -56,8 +56,12 @@ public class LevelSystem : MonoBehaviour
 
     private void increaseDamage()
     {
+        // Increase damage only for sword man
         PlayerAttack playerAttack = GetComponentInChildren<PlayerAttack>();
+        if (playerAttack)
+        {
         playerAttack.attackDamage += 1;
+        }
     }
 
 }

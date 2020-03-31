@@ -11,7 +11,6 @@ public class SetCharacter : MonoBehaviour
     private int distance = 1;
     private void Awake()
     {
-        
         if(ChangeText.currentWeapon == true){
             gameObject = Instantiate(character1, parent.transform.position  ,Quaternion.Euler(0f,0f,0f) );
             gameObject.transform.parent = parent.transform;
