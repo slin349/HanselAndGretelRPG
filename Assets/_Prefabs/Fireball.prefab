@@ -124,7 +124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosionVFX: {fileID: 1000011128802252, guid: 96730f8640590934eacb6f860058e7f9,
     type: 3}
-  blastRadius: 5
+  blastRadius: 3
 --- !u!1 &8119668240378664109
 GameObject:
   m_ObjectHideFlags: 0

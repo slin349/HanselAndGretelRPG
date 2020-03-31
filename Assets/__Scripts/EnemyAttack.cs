@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum AttackType
 {
-    Bomb, Sword
+    Bomb, Sword, Fireball
 }
 
 public class EnemyAttack : MonoBehaviour
@@ -14,6 +14,10 @@ public class EnemyAttack : MonoBehaviour
 
     public GameObject player;
     public GameObject grenade;
+    public GameObject projectile;
+    public float projectileSpeed = 2.0f;
+    public float timeBeforeDeletion = 3.0f;
+
 
 
     private EnemyMovement enemyMovement;
@@ -46,11 +50,51 @@ public class EnemyAttack : MonoBehaviour
             {
                 BombAttack();
             }
+            if (attackType == AttackType.Fireball)
+            {
+                FireballAttack();
+            }
             else
             {
                 SwordAttack();
             }
         }
+    }
+
+    void FireballAttack()
+    {
+        if (enemyMovement.playerDistance < 10.0f && !playerHealth.isDead)
+        {
+            if (!isDistanceCheck)
+            {
+                print("You need to leave or else i will fireball u");
+                isDistanceCheck = true;
+            }
+            else
+            {
+                timeLeft -= Time.deltaTime;
+            }
+
+            if (timeLeft <= 0.0f && Time.time > nextAttack)
+            {
+                nextAttack = Time.time + attackRate;
+                print("FIREBALL");
+                GameObject fireball = Instantiate(projectile, transform) as GameObject;
+                Rigidbody rb = fireball.GetComponent<Rigidbody>();
+
+                rb.velocity = transform.forward * projectileSpeed;
+
+                Destroy(fireball, timeBeforeDeletion);
+            }
+
+        }
+        else
+        {
+            animator.SetBool("attack", false);
+            isDistanceCheck = false;
+            timeLeft = 3.0f;
+        }
+      
     }
 
     void BombAttack()
