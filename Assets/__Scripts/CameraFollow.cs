@@ -18,6 +18,7 @@ public class CameraFollow : MonoBehaviour
 
     private void LateUpdate()
     {
+        print(target.transform.position);
         CamControl();
     }
 

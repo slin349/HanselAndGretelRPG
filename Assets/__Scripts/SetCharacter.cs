@@ -17,14 +17,21 @@ public class SetCharacter : MonoBehaviour
             gameObject.transform.parent = parent.transform;
             gameObject.transform.localScale = new Vector3(1,1,1);
             gameObject.transform.Translate(0.0f, -1.0f, 0.0f);
+            if(CameraView.CamMode == 1){
+                gameObject.transform.rotation = Quaternion.Euler(new Vector3(0, 180 ,0));
+            }
         }
         else{
             gameObject = Instantiate(character2, parent.transform.position  ,Quaternion.Euler(0f,0f,0f) );
             gameObject.transform.parent = parent.transform;
             gameObject.transform.localScale = new Vector3(1,1,1);
             gameObject.transform.Translate(0.0f, -1.0f, 0.0f);
+            if(CameraView.CamMode == 1){
+                gameObject.transform.rotation = Quaternion.Euler(new Vector3(0, 180 ,0));
+            }
         }
             
     }
+   
     
 }
