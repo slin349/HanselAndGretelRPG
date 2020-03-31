@@ -5,6 +5,8 @@ using UnityEngine;
 public class MainPlayer : MonoBehaviour
 {
     public static MainPlayer S = null;
+    
+
     void Awake()
     {
         if (S == null)
@@ -17,9 +19,12 @@ public class MainPlayer : MonoBehaviour
         }
     }
     void Update(){
+        
         if(Input.GetKeyDown(KeyCode.P)){
             Application.LoadLevel("Inventory");
         }
+        
+        
     }
 
 }

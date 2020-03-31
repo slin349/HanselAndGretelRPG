@@ -5,7 +5,8 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
     public float rotationSpeed = 1;
-    public Transform target, player;
+    public Transform target;
+    public Transform player;
     float mouseX, mouseY;
 
     private void Start()
