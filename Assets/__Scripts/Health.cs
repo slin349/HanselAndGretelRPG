@@ -9,7 +9,9 @@ public class Health : MonoBehaviour
     public float currhealth;
     public SimpleHealthBar healthBar;
     public Animator animator;
+    public bool isResistve;
     private int _level;
+    
 
 
     public bool isDead = false;

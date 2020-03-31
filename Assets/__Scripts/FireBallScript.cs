@@ -21,7 +21,11 @@ public class FireBallScript : MonoBehaviour
             Health dealDamage = nearbyObject.GetComponent<Health>();
 
             //check if nearby objects are not rigidbody
-            if (dealDamage != null)
+            if (dealDamage.isResistve)
+            {
+                dealDamage.TakeDamage(0);
+            }
+            else if (dealDamage != null)
             {
                 //add damage when grenade explodes
                 dealDamage.TakeDamage(5);
