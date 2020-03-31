@@ -6,8 +6,18 @@ public class CameraView : MonoBehaviour
 {
     public GameObject ThirdCam;
     public GameObject FirstCam;
-    public int CamMode;
+    public static int CamMode;
     // Update is called once per frame
+    void Start(){
+        if(CamMode == 0 ){
+            ThirdCam.SetActive(true);
+            FirstCam.SetActive(false);
+        }
+        if(CamMode == 1){
+            ThirdCam.SetActive(false);
+            FirstCam.SetActive(true);
+        }
+    }
     void Update()
     {
         if(Input.GetButtonDown("Camera")){
