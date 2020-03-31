@@ -700,6 +700,8 @@ MonoBehaviour:
 
     Sprint: Hold Shift
 
+    Change Camera: T
+
 '
 --- !u!222 &1685249625
 CanvasRenderer:
