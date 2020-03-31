@@ -825,9 +825,16 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: The objective of the game is to defeat the evil witch located in the center
-    of the map. To do this you first have to overcome the boses located at each island
-    around the map. Killing them increase your strength and resistances.
+  m_Text: 'Johnny, is that you??!! My god, well, I''m glad you''re awake! I regret
+    to inform you that the Dark Knight has captured you and brought you to his secret
+    island. It seems like the only way for you to possibly make an escape is by first
+    defeating him, but be warned: he is strong. I''m not sure where he is located
+    on the island, but you''ll know him when you see him. I suggest before you fight
+    him though, you gain some experience and level up by fighting some of his goons
+    also scattered around the island. Leveling up will increase your overall health
+    and damage. To make your escape as quick as possible, try and defeat the Dark
+    Knight by accumulating as little points as you can (points are only accumulated
+    when you defeat a goon). Good luck Johnny!'
 --- !u!222 &1760026476
 CanvasRenderer:
   m_ObjectHideFlags: 0
