@@ -10,9 +10,6 @@ public class Health : MonoBehaviour
     public SimpleHealthBar healthBar;
     public Animator animator;
     public bool isResistve;
-    private int _level;
-    
-
 
     [HideInInspector]
     public bool isDead = false;
