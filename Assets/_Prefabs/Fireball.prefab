@@ -92,7 +92,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.4
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &3644210637063214029
 Rigidbody:
@@ -125,6 +125,7 @@ MonoBehaviour:
   explosionVFX: {fileID: 1000011128802252, guid: 96730f8640590934eacb6f860058e7f9,
     type: 3}
   blastRadius: 3
+  projectileSpeed: 10
 --- !u!1 &8119668240378664109
 GameObject:
   m_ObjectHideFlags: 0

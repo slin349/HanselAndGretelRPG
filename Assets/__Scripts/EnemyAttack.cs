@@ -15,14 +15,14 @@ public class EnemyAttack : MonoBehaviour
     public GameObject player;
     public GameObject grenade;
     public GameObject projectile;
-    public float projectileSpeed = 2.0f;
+    public GameObject projectilePosition;
     public float timeBeforeDeletion = 3.0f;
-
 
 
     private EnemyMovement enemyMovement;
     private Health health;
     private Health playerHealth;
+    public Vector3 currentPlayerPosition;
 
     private bool isDistanceCheck = false;
     private float timeLeft = 3.0f;
@@ -63,7 +63,7 @@ public class EnemyAttack : MonoBehaviour
 
     void FireballAttack()
     {
-        if (enemyMovement.playerDistance < 10.0f && !playerHealth.isDead)
+        if (enemyMovement.playerDistance < 20.0f && !playerHealth.isDead)
         {
             if (!isDistanceCheck)
             {
@@ -78,13 +78,14 @@ public class EnemyAttack : MonoBehaviour
             if (timeLeft <= 0.0f && Time.time > nextAttack)
             {
                 nextAttack = Time.time + attackRate;
-                print("FIREBALL");
-                GameObject fireball = Instantiate(projectile, transform) as GameObject;
-                Rigidbody rb = fireball.GetComponent<Rigidbody>();
+                currentPlayerPosition = player.transform.position;
 
-                rb.velocity = transform.forward * projectileSpeed;
+                //spawn fireball at hand of boss
+                GameObject fireball = Instantiate(projectile, projectilePosition.transform.position, projectilePosition.transform.rotation) as GameObject;
 
+                //If fireball doesn't explode then delete
                 Destroy(fireball, timeBeforeDeletion);
+                          
             }
 
         }
