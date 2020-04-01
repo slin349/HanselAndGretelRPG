@@ -15,29 +15,27 @@ public class EnemyMovement : MonoBehaviour
     public int destPoint = 0;
     public Transform goal;
 
-    private Animator animator;
-    private Health health;
-
-    private Health playerHealth;
+    private Animator _animator;
+    private Health _health;
+    private Health _playerHealth;
 
     private void Start()
     {
-        health = GetComponentInChildren<Health>();
-        animator = GetComponentInChildren<Animator>();
+        _health = GetComponentInChildren<Health>();
+        _animator = GetComponentInChildren<Animator>();
+        _playerHealth = player.GetComponentInChildren<Health>();
         UnityEngine.AI.NavMeshAgent agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         agent.destination = goal.position;
         agent.autoBraking = false;
         // Default to walking animation
-        animator.SetInteger("condition", 1);
-
-        playerHealth = player.GetComponentInChildren<Health>();
+        _animator.SetInteger("condition", 1);
 
     }
 
     private void Update()
     {
         // Check if character is still alive
-        if (!health.isDead)
+        if (!_health.isDead)
         {
             Move();
         }
@@ -54,29 +52,29 @@ public class EnemyMovement : MonoBehaviour
     void Move()
     {
         playerDistance = Vector3.Distance(player.position, transform.position);
-        if (playerDistance < awareAI && !playerHealth.isDead)
+        if (playerDistance < awareAI && !_playerHealth.isDead)
         {
             LookAtPlayer();
         }
-        if (playerDistance < awareAI && !playerHealth.isDead)
+        if (playerDistance < awareAI && !_playerHealth.isDead)
         {
             if (playerDistance > 2f)
             {
                 // Run
-                animator.SetInteger("condition", 2);
+                _animator.SetInteger("condition", 2);
                 Chase();
             }
             else
             {
                 // Walk
-                animator.SetInteger("condition", 1);
+                _animator.SetInteger("condition", 1);
                 GoToNextPoint();
             }
         }
         {
             if (agent.remainingDistance < 0.5f)
             {
-                animator.SetInteger("condition", 1);
+                _animator.SetInteger("condition", 1);
                 GoToNextPoint();
             }
         }

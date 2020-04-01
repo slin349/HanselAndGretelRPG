@@ -8,16 +8,16 @@ public class FireballSpawner : MonoBehaviour
     public float projectileSpeed;
     public float timeBeforeDeletion;
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.H))
         {
+            // Create fireball object
             GameObject fireball = Instantiate(projectile, transform) as GameObject;
             Rigidbody rb = fireball.GetComponent<Rigidbody>();
-
+            // Apply velocity
             rb.velocity = transform.forward * projectileSpeed;
-
+            // Destroy the fireball after a certain amount of time
             Destroy(fireball, timeBeforeDeletion);
         }
     }
