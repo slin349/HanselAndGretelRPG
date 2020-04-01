@@ -82,7 +82,7 @@ public class EnemyAttack : MonoBehaviour
 
                 //spawn fireball at hand of boss
                 GameObject fireball = Instantiate(projectile, projectilePosition.transform.position, projectilePosition.transform.rotation) as GameObject;
-
+                fireball.transform.parent = transform;
                 //If fireball doesn't explode then delete
                 Destroy(fireball, timeBeforeDeletion);
                           

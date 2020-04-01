@@ -6,14 +6,21 @@ public class FireBallScript : MonoBehaviour
 {
     public GameObject explosionVFX;
     public float blastRadius;
-    EnemyAttack who = new EnemyAttack();
     public float projectileSpeed = 2.0f;
+
+    private EnemyAttack enemyAttack;
+
+    private void Start()
+    {
+        enemyAttack = GetComponentInParent<EnemyAttack>();
+        print(enemyAttack.currentPlayerPosition);
+    }
 
 
     private void Update()
     {
         float step = projectileSpeed * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position, who.currentPlayerPosition, step);
+        transform.position = Vector3.MoveTowards(transform.position, enemyAttack.currentPlayerPosition, step);
     }
 
     void OnTriggerEnter(Collider other)
