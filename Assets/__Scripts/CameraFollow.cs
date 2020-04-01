@@ -26,6 +26,7 @@ public class CameraFollow : MonoBehaviour
         mouseX += Input.GetAxis("Mouse X") * rotationSpeed;
         mouseY -= Input.GetAxis("Mouse Y") * rotationSpeed;
 
+        // To lock camera from rotating above and behind head
         mouseY = Mathf.Clamp(mouseY, -35, 60);
 
         transform.LookAt(target);

@@ -9,6 +9,7 @@ public class ChangeText : MonoBehaviour
     public GameObject character1;
     public GameObject character2;
     public static bool currentWeapon;
+    [HideInInspector]
     public GameObject gameObject;
     // Update is called once per frame
     void Start(){

@@ -4,49 +4,51 @@ using UnityEngine;
 
 public class CameraView : MonoBehaviour
 {
-    public GameObject ThirdCam;
-    public GameObject FirstCam;
-    public static int CamMode;
-    public GameObject Player;
+    public GameObject thirdCam;
+    public GameObject firstCam;
+    public static int camMode;
+    public GameObject player;
+    [HideInInspector]
     public Vector3 euler;
+
     // Update is called once per frame
     void Start(){
-        if(CamMode == 0 ){
-            ThirdCam.SetActive(true);
-            FirstCam.SetActive(false);
+        if(camMode == 0 ){
+            thirdCam.SetActive(true);
+            firstCam.SetActive(false);
         }
-        if(CamMode == 1){
-            ThirdCam.SetActive(false);
-            FirstCam.SetActive(true);
+        if(camMode == 1){
+            thirdCam.SetActive(false);
+            firstCam.SetActive(true);
         }
     }
     void Update()
     {
         if(Input.GetButtonDown("Camera")){
             
-            if(CamMode == 1){
-                CamMode = 0;
+            if(camMode == 1){
+                camMode = 0;
             }
             else{
-                CamMode += 1;
+                camMode += 1;
             }
-            euler = Player.transform.rotation.eulerAngles;
+            euler = player.transform.rotation.eulerAngles;
             StartCoroutine (CamChange());
-            Player.transform.rotation = Quaternion.Euler(new Vector3(0, euler.y,0));
+            player.transform.rotation = Quaternion.Euler(new Vector3(0, euler.y,0));
         }
         
     }
    
     IEnumerator CamChange(){
         yield return new WaitForSeconds(0.01f);
-        if(CamMode == 0 ){
-            ThirdCam.SetActive(true);
-            FirstCam.SetActive(false);
+        if(camMode == 0 ){
+            thirdCam.SetActive(true);
+            firstCam.SetActive(false);
             
         }
-        if(CamMode == 1){
-            ThirdCam.SetActive(false);
-            FirstCam.SetActive(true);
+        if(camMode == 1){
+            thirdCam.SetActive(false);
+            firstCam.SetActive(true);
             
         }
     }

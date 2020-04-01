@@ -16,7 +16,7 @@ public class SetCharacter : MonoBehaviour
             gameObject.transform.parent = parent.transform;
             gameObject.transform.localScale = new Vector3(1,1,1);
             gameObject.transform.Translate(0.0f, -1.0f, 0.0f);
-            if(CameraView.CamMode == 1){
+            if(CameraView.camMode == 1){
                 gameObject.transform.rotation = Quaternion.Euler(new Vector3(0, 180 ,0));
             }
         }
@@ -25,7 +25,7 @@ public class SetCharacter : MonoBehaviour
             gameObject.transform.parent = parent.transform;
             gameObject.transform.localScale = new Vector3(1,1,1);
             gameObject.transform.Translate(0.0f, -1.0f, 0.0f);
-            if(CameraView.CamMode == 1){
+            if(CameraView.camMode == 1){
                 gameObject.transform.rotation = Quaternion.Euler(new Vector3(0, 180 ,0));
             }
         }
