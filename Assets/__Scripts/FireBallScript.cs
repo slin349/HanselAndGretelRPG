@@ -40,7 +40,7 @@ public class FireBallScript : MonoBehaviour
             // Check if nearby enemies have a health script and apply damage
             if (health)
             {
-                if (!health.isResistve)
+                if (!health.isResistive)
                 {
                     health.TakeDamage(5);
                 }
