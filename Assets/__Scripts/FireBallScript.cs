@@ -20,7 +20,11 @@ public class FireBallScript : MonoBehaviour
     private void Update()
     {
         float step = projectileSpeed * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position, enemyAttack.currentPlayerPosition, step);
+        Vector3 endPos = enemyAttack.currentPlayerPosition;
+        endPos.y -= 1.0f;
+
+
+        transform.position = Vector3.MoveTowards(transform.position, endPos, step);
     }
 
     void OnTriggerEnter(Collider other)
