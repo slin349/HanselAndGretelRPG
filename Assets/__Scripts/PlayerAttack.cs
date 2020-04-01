@@ -9,10 +9,8 @@ public class PlayerAttack : MonoBehaviour
     public int attackDamage = 1;
     public float attackRange = 2f;
     public float attackRate = 0.5f;
-    public GameObject grenade;
-    public int numOfGrenades = 1;
-    private float nextAttack;
-    private Animator animator;
+    private float _nextAttack;
+    private Animator _animator;
     private int _level;
     private const int DAMAGE_MULTIPLIER = 2;
 
@@ -21,7 +19,7 @@ public class PlayerAttack : MonoBehaviour
     private void Start()
     {
         health = GetComponentInParent<Health>();
-        animator = GetComponentInChildren<Animator>();
+        _animator = GetComponentInChildren<Animator>();
     }
 
     void Update()
@@ -29,11 +27,11 @@ public class PlayerAttack : MonoBehaviour
         // Only respond to click events if the player is not dead
         if (!health.isDead)
         {
-            if (Input.GetMouseButton(0) && Time.time > nextAttack)
+            if (Input.GetMouseButton(0) && Time.time > _nextAttack)
             {
-                nextAttack = Time.time + attackRate;
+                _nextAttack = Time.time + attackRate;
                 DoAttack();
-                animator.SetTrigger("attack");
+                _animator.SetTrigger("attack");
             }
         }
     }

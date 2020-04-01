@@ -14,20 +14,20 @@ public class PlayerMovement : MonoBehaviour
     public float gravity = -9.81f;
     public float jumpHeight = 3f;
 
-    Vector3 _velocity;
-    bool isGrounded;
+    private Vector3 _velocity;
+    private bool _isGrounded;
 
-    private float speed;
-    private float jumpRate = 1f;
-    private float nextJump;
-    private Animator animator;
+    private float _speed;
+    private float _jumpRate = 1f;
+    private float _nextJump;
+    private Animator _animator;
 
     public Health health;
 
     private void Start()
     {
-        animator = GetComponentInChildren<Animator>();
-        speed = defaultSpeed;
+        _animator = GetComponentInChildren<Animator>();
+        _speed = defaultSpeed;
     }
     // Update is called once per frame
     void Update()
@@ -44,8 +44,8 @@ public class PlayerMovement : MonoBehaviour
     void Movement()
     {
 
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-        if (isGrounded && _velocity.y < 0)
+        _isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        if (_isGrounded && _velocity.y < 0)
         {
             _velocity.y = -2f;
         }
@@ -57,20 +57,20 @@ public class PlayerMovement : MonoBehaviour
         if ((_xMov != 0 || _zMov != 0) && Input.GetKey(KeyCode.LeftShift))
         {
             // Running
-            speed = defaultSpeed * 2;
-            animator.SetInteger("condition", 2);
+            _speed = defaultSpeed * 2;
+            _animator.SetInteger("condition", 2);
         }
         else if ((_xMov != 0 || _zMov != 0) && !Input.GetKey(KeyCode.LeftShift))
         {
             // Walking
-            speed = defaultSpeed;
-            animator.SetInteger("condition", 1);
+            _speed = defaultSpeed;
+            _animator.SetInteger("condition", 1);
 
         }
         else
         {
             // Idling
-            animator.SetInteger("condition", 0);
+            _animator.SetInteger("condition", 0);
         }
 
  
@@ -78,19 +78,19 @@ public class PlayerMovement : MonoBehaviour
         // Lateral movement
         Vector3 _movHorizontal = transform.right * _xMov;
         Vector3 _movVertical = transform.forward * _zMov;
-        Vector3 move = (_movHorizontal + _movVertical).normalized * speed;
+        Vector3 move = (_movHorizontal + _movVertical).normalized * _speed;
         controller.Move(move * Time.deltaTime);
 
         // Handle jumping
-        if (Input.GetButtonDown("Jump") && isGrounded && Time.time > nextJump) 
+        if (Input.GetButtonDown("Jump") && _isGrounded && Time.time > _nextJump) 
         {
-            nextJump = Time.time + jumpRate;    // Prevent input buffering of the jump
-            animator.SetBool("in_air", true);
+            _nextJump = Time.time + _jumpRate;    // Prevent input buffering of the jump
+            _animator.SetBool("in_air", true);
             Invoke("Jump", 0.3f);
         }
         else
         {
-            animator.SetBool("in_air", false);
+            _animator.SetBool("in_air", false);
         }
 
         _velocity.y += gravity * Time.deltaTime;

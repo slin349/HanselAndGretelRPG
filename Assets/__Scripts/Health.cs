@@ -14,6 +14,7 @@ public class Health : MonoBehaviour
     
 
 
+    [HideInInspector]
     public bool isDead = false;
 
     virtual public void Start()
