@@ -9,6 +9,8 @@ public class LevelSystem : MonoBehaviour
     public int expToNextLevel = 100;
     public Text levelText;
     public GameObject levelUpEffect;
+    private Health health;
+    private PlayerAttack playerAttack;
     private int _currExp = 0;
     private int _level = 1;
     private const int EXPVALUE = 10;
@@ -17,6 +19,8 @@ public class LevelSystem : MonoBehaviour
     {
         expBar.UpdateBar(_currExp, expToNextLevel);
         levelText.text = "Level: " + _level.ToString();
+        health = GetComponentInParent<Health>();
+        playerAttack = GetComponentInChildren<PlayerAttack>();
     }
     private void OnTriggerEnter(Collider collider)
     {
@@ -48,7 +52,6 @@ public class LevelSystem : MonoBehaviour
 
     private void increaseMaxHealth()
     {
-        Health health = GetComponentInParent<Health>();
         health.maxHealth += 5;
         health.currhealth = health.maxHealth;
         health.healthBar.UpdateBar(health.currhealth, health.maxHealth);
@@ -57,7 +60,6 @@ public class LevelSystem : MonoBehaviour
     private void increaseDamage()
     {
         // Increase damage only for sword man
-        PlayerAttack playerAttack = GetComponentInChildren<PlayerAttack>();
         if (playerAttack)
         {
         playerAttack.attackDamage += 1;
