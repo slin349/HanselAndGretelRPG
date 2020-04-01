@@ -5,13 +5,13 @@ using UnityEngine;
 public class EnemyHealth : Health
 {
     public GameObject expCube;
-    private PointSystem pointSystem;
+    private PointSystem _pointSystem;
 
     override public void Start()
     {
         animator = GetComponentInChildren<Animator>();
         currhealth = maxHealth;
-        pointSystem = Object.FindObjectOfType<PointSystem>();
+        _pointSystem = Object.FindObjectOfType<PointSystem>();
     }
 
     override public void TakeDamage(float amount)
@@ -21,22 +21,20 @@ public class EnemyHealth : Health
         {
             if (gameObject.tag == "Green")
             {
-                pointSystem.points += 10;
+                _pointSystem.points += 10;
             } else if (gameObject.tag == "Blue")
             {
-                pointSystem.points += 5; 
+                _pointSystem.points += 5; 
             }
-            pointSystem.pointsText.text = "Points: " + pointSystem.points.ToString();
-            print("Died");
+            _pointSystem.pointsText.text = "Points: " + _pointSystem.points.ToString();
             isDead = true;
             animator.SetBool("isDead", true);
-            //dropping 4 exp orbs
+            // Drop 4 exp orbs
             DropExp();
             Destroy(gameObject);
         }
         else
         {
-            print("Took damage");
             animator.SetTrigger("hit");
         }
     }

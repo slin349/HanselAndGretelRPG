@@ -10,13 +10,14 @@ public class GrenadeAttack : MonoBehaviour
     public float attackRange = 1f;
     public float attackRate = 1f;
     public GameObject grenade;
-    private float nextAttack;
-    private Animator animator;
+
+    private float _nextAttack;
+    private Animator _animator;
 
     // Start is called before the first frame update
     private void Start()
     {
-        animator = GetComponentInChildren<Animator>();
+        _animator = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
@@ -25,9 +26,11 @@ public class GrenadeAttack : MonoBehaviour
         //If Q is pressed, initiate grenade
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            nextAttack = Time.time + attackRate;
+            // Set next attack time
+            _nextAttack = Time.time + attackRate;
+            // Play attack animation
+            _animator.SetTrigger("attack");
             ThrowGrenade();
-            animator.SetTrigger("attack");
         }
 
     }

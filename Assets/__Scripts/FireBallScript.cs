@@ -8,39 +8,36 @@ public class FireBallScript : MonoBehaviour
     public float blastRadius;
     public float projectileSpeed = 2.0f;
 
-    private EnemyAttack enemyAttack;
+    private EnemyAttack _enemyAttack;
 
     private void Start()
     {
-        enemyAttack = GetComponentInParent<EnemyAttack>();
-        print(enemyAttack.currentPlayerPosition);
+        _enemyAttack = GetComponentInParent<EnemyAttack>();
     }
 
 
     private void Update()
     {
         float step = projectileSpeed * Time.deltaTime;
-        Vector3 endPos = enemyAttack.currentPlayerPosition;
+        Vector3 endPos = _enemyAttack.currentPlayerPosition;
         endPos.y -= 1.0f;
-
-
         transform.position = Vector3.MoveTowards(transform.position, endPos, step);
     }
 
     void OnTriggerEnter(Collider other)
     {
-        //Destory fireball if collided
+        // Destory fireball if collided
         Destroy(gameObject);
-        //Deploy explosion effects
+        // Deploy explosion effects
         Instantiate(explosionVFX, transform.position, transform.rotation);
 
-        //Deal Damage
+        // Deal Damage
         Collider[] colliders = Physics.OverlapSphere(transform.position, blastRadius);
         foreach (Collider nearbyObject in colliders)
         {
             Health health = nearbyObject.GetComponent<Health>();
 
-            //check if nearby objects are not rigidbody
+            // Check if nearby enemies have a health script and apply damage
             if (health)
             {
                 if (!health.isResistve)
