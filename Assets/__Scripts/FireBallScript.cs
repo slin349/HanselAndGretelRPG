@@ -38,18 +38,17 @@ public class FireBallScript : MonoBehaviour
         Collider[] colliders = Physics.OverlapSphere(transform.position, blastRadius);
         foreach (Collider nearbyObject in colliders)
         {
-            Health dealDamage = nearbyObject.GetComponent<Health>();
+            Health health = nearbyObject.GetComponent<Health>();
 
             //check if nearby objects are not rigidbody
-            if (dealDamage.isResistve)
+            if (health)
             {
-                dealDamage.TakeDamage(0);
-            }
-            else if (dealDamage != null)
-            {
-                //add damage when grenade explodes
-                dealDamage.TakeDamage(5);
-            }
+                if (!health.isResistve)
+                {
+                    health.TakeDamage(5);
+                }
+            } 
+            
         }
     }
 }
