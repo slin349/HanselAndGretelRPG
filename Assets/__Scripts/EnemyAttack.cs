@@ -72,17 +72,16 @@ public class EnemyAttack : MonoBehaviour
 
             if (_timeLeft <= 0.0f && Time.time > _nextAttack)
             {
-                _nextAttack = Time.time + _attackRate;
+                _nextAttack = Time.time + (_attackRate * 2.0f);
                 currentPlayerPosition = player.transform.position;
 
                 // Spawn fireball at hand of boss
                 GameObject fireball = Instantiate(projectile, projectilePosition.transform.position, projectilePosition.transform.rotation) as GameObject;
                 fireball.transform.parent = transform;
+
                 // If fireball doesn't explode then delete
                 Destroy(fireball, timeBeforeDeletion);
-                          
             }
-
         }
         else
         {

@@ -6,7 +6,7 @@ public class FireBallScript : MonoBehaviour
 {
     public GameObject explosionVFX;
     public float blastRadius;
-    public float projectileSpeed = 2.0f;
+    public float projectileSpeed = 1.5f;
 
     private EnemyAttack _enemyAttack;
 
